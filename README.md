@@ -1,8 +1,61 @@
-# Nexus AI - Universal Web Intelligence Navigator
+# NEXUS AI – Universal Web Intelligence Navigator
 
 ## 🚀 Revolutionary Autonomous Web Agent
 
-Nexus AI is a cutting-edge autonomous web navigation system that can intelligently browse any website, analyze products, gather news, and provide human-like interaction with the web.
+NEXUS AI is a cutting-edge autonomous web navigation system that can intelligently browse any website, analyze products, gather news, and provide human-like interaction with the web.
+
+## Project Title & Summary
+
+- Project Title: `NEXUS-AI` (matches the GitHub repository name)
+
+Project Summary (≤300 words):
+NEXUS AI addresses the challenge of extracting useful information from diverse, ever-changing websites without site-specific integrations. It understands natural-language queries and autonomously navigates pages using human-like behaviors—scrolling, clicking, waiting, retrying—and structured extraction. The prototype combines a Node.js backend with Playwright‑driven automation and a lightweight real-time UI to show progress and results. It supports common tasks such as product comparison, news summarization, and cross‑site analysis while remaining configurable via `config.json`.
+
+The proposed solution uses site adapters for major platforms (e.g., Amazon, Flipkart, Google, news portals) and generic fallbacks for arbitrary sites. A summarization and analysis layer transforms raw page data into concise insights. Voice interaction (Web Speech API) enables natural command-and-response operation. Error resilience and adaptive delays improve reliability and mimic real-user behavior.
+
+Uniqueness and impact: Unlike static scrapers or single‑site bots, NEXUS AI is a universal navigator designed to generalize across sites and tasks. Its modular adapters, autonomous decision-making, and voice interface make it accessible and scalable for research, shopping, and news intelligence. By prioritizing local execution and consent, it balances capability with privacy and responsible automation.
+
+## Problem Statement
+
+## 📌 Problem Statement
+
+Design and implement an autonomous web agent that can understand natural‑language queries and navigate arbitrary websites to retrieve, analyze, and summarize information (e.g., products, articles, comparisons) with minimal human supervision.
+
+## 🧭 Proposal & Prototype Plan
+
+- Phase 1: Core Setup
+  - Establish Node.js backend (Express + WebSocket) and Playwright with Chromium.
+  - Baseline frontend with real‑time status and logs.
+- Phase 2: Autonomous Navigation
+  - Implement human‑like actions: scrolling, clicking, waiting, retries, error recovery.
+  - Site adapters for major platforms (Amazon, Flipkart, Google, News sites).
+- Phase 3: Analysis & Summarization
+  - Product spec extraction, review parsing, and scoring.
+  - Article content extraction and concise summaries.
+- Phase 4: Voice Interaction
+  - Integrate Web Speech API for voice commands and responses.
+- Phase 5: Evaluation & Telemetry
+  - Structured logs, optional screenshots, and performance metrics.
+  - Configurable behaviors via `config.json`.
+
+## 🧰 Tech Stack Used
+
+- Backend: Node.js, Express, WebSocket
+- Automation: Playwright + Chromium
+- Frontend: HTML5 with real‑time updates
+- Voice: Web Speech API
+- Config: JSON‑based (`config.json`)
+
+## 👥 Contribution Details
+
+Replace placeholders below with actual team member details via PRs to the `project-plan` branch.
+
+| Name | GitHub | Role | Contributions |
+|------|--------|------|---------------|
+| Sandhya RJ | `@sandhya-rj` | Owner/Lead | Repo setup, planning, core automation |
+| Member 1 | `@username1` | Backend | Express/WebSocket APIs, config mgmt |
+| Member 2 | `@username2` | Automation | Playwright flows, site adapters |
+| Member 3 | `@username3` | Frontend/Voice | UI, Web Speech integration |
 
 ### ✨ Key Features
 
@@ -101,3 +154,33 @@ The system continuously learns and adapts. Regular updates include:
 ---
 
 **Nexus AI - Where Artificial Intelligence Meets Universal Web Navigation**
+
+## Contribution Details (5 Members)
+
+| Name | GitHub | Role | Contributions |
+|------|--------|------|---------------|
+| Bala Vignesh (Team Leader) | `@username-lead` | Product & Architecture Lead | Roadmap, architecture, coordination, video lead |
+| Sandhya RJ | `@sandhya-rj` | Automation & Orchestration | Repo setup, Playwright flows, data pipelines |
+| Member 3 | `@username3` | Backend & APIs | Express/WebSocket services, config & persistence |
+| Member 4 | `@username4` | Frontend & Voice UX | Real-time UI, Web Speech integration |
+| Member 5 | `@username5` | Site Adapters & QA | Cross‑site adapters, testing, evaluation |
+
+Update GitHub handles and contributions via PRs on the `project-plan` branch.
+
+## Video Pitch Submission (3–4 minutes, English)
+
+- Every team member appears at least once.
+- Each member: introduce themselves and explain their contribution.
+- Suggested flow: team intro → problem understanding → prototype/solution overview → innovation & uniqueness → next steps/scalability.
+- Format options: slideshow, infographic, flowchart, or screen share with voiceover.
+- Upload to Google Drive with access set to “Anyone with the link can view”. Inaccessible links will be disqualified.
+
+## Collaborators
+
+- Add teammates as collaborators with write access using GitHub CLI:
+  - `gh auth login`
+  - `.\u005cscripts\add-collaborators.ps1 -Repo "sandhya-rj/NEXUS-AI" -Users @("username-lead","username3","username4","username5") -Permission "push"`
+
+## Dedicated Project Branch
+
+- A dedicated branch `project-plan` has been created for planning and documentation. Create PRs into `main` after review.

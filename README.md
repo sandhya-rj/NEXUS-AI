@@ -10,47 +10,7 @@ Ask it to compare laptops, fetch the latest news, or analyze products across mul
 
 **Project Title:** `NEXUS-AI`  
 
-**Project Summary (≤300 words):**  
-NEXUS AI is an autonomous web navigation system designed to intelligently browse any website, analyze products, gather news, and provide human-like interaction. It addresses the challenge of extracting useful information from diverse, dynamic websites without requiring site-specific integrations. Users can input natural-language queries, and NEXUS AI navigates pages autonomously—scrolling, clicking, waiting, and retrying—to retrieve structured insights.
-
-The prototype integrates a Node.js backend with Playwright for browser automation and a lightweight real-time frontend. It supports common tasks such as product comparison, news summarization, and cross-platform analysis. Voice interaction via the Web Speech API enables natural command-and-response operation. Error resilience, adaptive delays, and site adapters for major platforms ensure reliability and scalability.
-
-**Uniqueness & Impact:**  
-Unlike conventional scrapers or bots limited to specific sites, NEXUS AI generalizes across multiple websites and tasks. Its modular architecture, autonomous decision-making, and voice interface make it an innovative solution for research, shopping, and news intelligence, all while prioritizing local execution and user privacy.
-This intro is catchy, human-like, and clearly highlights what makes Nexus AI special: human-like browsing, autonomous navigation, and universal web intelligence.
-
-If you want, I can revise the entire README with this style while keeping all other sections (team, contributions, setup, features, etc.) consistent.
-
-Do you want me to do that?
-
-
-
-
-
-
-
-You said:
-give the full README.MD
-
-
-ChatGPT said:
-Absolutely! Here's a full, polished README.md for your Nexus AI project, incorporating a catchy intro, human-like browsing, autonomous navigation, team contributions, and all submission requirements:
-
-markdown
-Copy code
-# NEXUS AI – The Intelligent Web Navigator That Thinks Like You  
-
-Unlike traditional chatbots that only provide answers, **NEXUS AI goes a step further**: it **autonomously browses websites, searches for products or news, and analyzes content in real-time**—all while **mimicking human behavior**. Scrolls, clicks, waits, retries, and adapts like a real person navigating the web.  
-
-Ask it to compare laptops, fetch the latest news, or analyze products across multiple platforms, and Nexus AI will open the browser, navigate pages intelligently, and present structured insights. It’s **not just a chatbot; it’s your personal web intelligence assistant**—universal, autonomous, and highly adaptable.  
-
----
-
-## 🚀 Project Title & Summary
-
-**Project Title:** `NEXUS-AI`  
-
-**Project Summary (≤300 words):**  
+**Project Summary:**  
 NEXUS AI is an autonomous web navigation system designed to intelligently browse any website, analyze products, gather news, and provide human-like interaction. It addresses the challenge of extracting useful information from diverse, dynamic websites without requiring site-specific integrations. Users can input natural-language queries, and NEXUS AI navigates pages autonomously—scrolling, clicking, waiting, and retrying—to retrieve structured insights.
 
 The prototype integrates a Node.js backend with Playwright for browser automation and a lightweight real-time frontend. It supports common tasks such as product comparison, news summarization, and cross-platform analysis. Voice interaction via the Web Speech API enables natural command-and-response operation. Error resilience, adaptive delays, and site adapters for major platforms ensure reliability and scalability.

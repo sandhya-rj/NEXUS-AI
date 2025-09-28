@@ -1,0 +1,20 @@
+# AutoNav AI Phase 3 Dependencies
+
+# OpenAI API client
+openai>=1.0.0
+
+# Voice recognition & TTS
+SpeechRecognition>=3.8.1
+pyttsx3>=2.90
+
+# Web automation
+playwright>=1.40.0
+
+# HTML parsing
+beautifulsoup4>=4.12.2
+
+# GUI framework (latest available stable version)
+customtkinter>=5.2.2
+
+# Optional: for modern tkinter widgets
+tk>=0.1.0

@@ -1,0 +1,22 @@
+# Python virtual environment
+venv/
+__pycache__/
+
+# Chrome / browser profiles
+chrome_profile/
+
+# Large model binaries
+*.bin
+
+# Logs, data, temp files
+*.log
+*.json
+data/
+
+# OS / IDE files
+.DS_Store
+Thumbs.db
+
+# Node dependencies
+node_modules/
+

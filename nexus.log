@@ -1,0 +1,102 @@
+2025-09-28T09:50:04.278Z [INFO]: Initializing Nexus Agent...
+2025-09-28T09:50:04.300Z [INFO]: Nexus AI Server running on http://localhost:3000
+2025-09-28T09:50:05.205Z [INFO]: Client connected via WebSocket
+2025-09-28T09:50:08.364Z [INFO]: Browser initialized successfully
+2025-09-28T09:50:08.365Z [INFO]: Nexus Agent initialized and ready
+2025-09-28T09:51:39.613Z [INFO]: Initializing Nexus Agent...
+2025-09-28T09:51:39.627Z [INFO]: Nexus AI Server running on http://localhost:3000
+2025-09-28T09:51:39.979Z [INFO]: Client connected via WebSocket
+2025-09-28T09:51:43.339Z [INFO]: Browser initialized successfully
+2025-09-28T09:51:43.340Z [INFO]: Nexus Agent initialized and ready
+2025-09-28T09:54:03.630Z [INFO]: Initializing Nexus Agent...
+2025-09-28T09:54:03.649Z [INFO]: Nexus AI Server running on http://localhost:3000
+2025-09-28T09:54:06.783Z [INFO]: Browser initialized successfully
+2025-09-28T09:54:06.784Z [INFO]: Nexus Agent initialized and ready
+2025-09-28T09:54:13.038Z [INFO]: Client connected via WebSocket
+2025-09-28T09:54:24.945Z [INFO]: Processing query: laptops under 50k
+2025-09-28T09:54:24.952Z [INFO]: Status: Executing plan: search_products_analyze_top
+2025-09-28T09:54:24.957Z [INFO]: TTS: Starting Search for products matching "laptops under 50k", rank by availability/rating/reviews, click top result and analyze
+2025-09-28T09:54:24.961Z [INFO]: Executing step 1: browse
+2025-09-28T09:54:25.828Z [INFO]: Page reinitialized after closure
+2025-09-28T09:54:25.832Z [INFO]: Status: Opening https://www.amazon.in
+2025-09-28T09:54:31.344Z [INFO]: Executing step 2: fill
+2025-09-28T09:54:31.822Z [INFO]: Filled "lapbests under 50000" into #twotabsearchtextbox
+2025-09-28T09:54:32.328Z [INFO]: Executing step 3: press
+2025-09-28T09:54:34.897Z [INFO]: Executing step 4: sleep
+2025-09-28T09:54:37.417Z [INFO]: Executing step 5: scroll
+2025-09-28T09:54:38.944Z [INFO]: Executing step 6: extract
+2025-09-28T09:54:39.044Z [WARN]: Extraction failed for div[data-component-type='s-search-result']: Too many arguments. If you need to pass more than 1 argument to the function wrap them in an object.
+2025-09-28T09:54:39.546Z [INFO]: Executing step 7: evaluate
+2025-09-28T09:54:39.549Z [INFO]: Evaluate: // Rank products by availability > rating > reviews > price
+2025-09-28T09:54:40.057Z [INFO]: Executing step 8: click
+2025-09-28T09:54:40.085Z [WARN]: Selector // Top ranked product link selector not found, trying next...
+2025-09-28T09:54:40.087Z [ERROR]: Step 8 failed: Could not find any valid selector for click operation
+2025-09-28T09:54:40.593Z [INFO]: Executing step 9: screenshot
+2025-09-28T09:54:42.774Z [INFO]: Screenshot saved: screenshot-1759053280595.png
+2025-09-28T09:54:43.282Z [INFO]: Executing step 10: extract
+2025-09-28T09:54:43.313Z [WARN]: Extraction failed for #productDetails, #feature-bullets, .a-section: Too many arguments. If you need to pass more than 1 argument to the function wrap them in an object.
+2025-09-28T09:54:43.827Z [INFO]: TTS: Summary: Search completed for "laptops under 50k". No products found matching the criteria. ...
+2025-09-28T09:55:11.393Z [INFO]: Processing query: hp gaming laptop
+2025-09-28T09:55:11.396Z [INFO]: Status: Executing plan: search_products_analyze_top
+2025-09-28T09:55:11.397Z [INFO]: TTS: Starting Search for products matching "hp gaming laptop", rank by availability/rating/reviews, click top result and analyze
+2025-09-28T09:55:11.397Z [INFO]: Executing step 1: browse
+2025-09-28T09:55:11.398Z [INFO]: Status: Opening https://www.amazon.in
+2025-09-28T09:55:16.156Z [INFO]: Executing step 2: fill
+2025-09-28T09:55:16.457Z [INFO]: Filled "hp gaming lapbest" into #twotabsearchtextbox
+2025-09-28T09:55:16.968Z [INFO]: Executing step 3: press
+2025-09-28T09:55:19.677Z [INFO]: Executing step 4: sleep
+2025-09-28T09:55:22.186Z [INFO]: Executing step 5: scroll
+2025-09-28T09:55:23.718Z [INFO]: Executing step 6: extract
+2025-09-28T09:55:24.659Z [WARN]: Extraction failed for div[data-component-type='s-search-result']: Too many arguments. If you need to pass more than 1 argument to the function wrap them in an object.
+2025-09-28T09:55:25.173Z [INFO]: Executing step 7: evaluate
+2025-09-28T09:55:25.176Z [INFO]: Evaluate: // Rank products by availability > rating > reviews > price
+2025-09-28T09:55:25.680Z [INFO]: Executing step 8: click
+2025-09-28T09:55:25.692Z [WARN]: Selector // Top ranked product link selector not found, trying next...
+2025-09-28T09:55:25.693Z [ERROR]: Step 8 failed: Could not find any valid selector for click operation
+2025-09-28T09:55:26.205Z [INFO]: Executing step 9: screenshot
+2025-09-28T09:55:30.190Z [INFO]: Screenshot saved: screenshot-1759053326207.png
+2025-09-28T09:55:30.698Z [INFO]: Executing step 10: extract
+2025-09-28T09:55:30.743Z [WARN]: Extraction failed for #productDetails, #feature-bullets, .a-section: Too many arguments. If you need to pass more than 1 argument to the function wrap them in an object.
+2025-09-28T09:55:31.272Z [INFO]: TTS: Summary: Search completed for "hp gaming laptop". No products found matching the criteria. ...
+2025-09-28T09:55:54.626Z [INFO]: Processing query: charlie kirk is dead
+2025-09-28T09:55:54.630Z [INFO]: Status: Executing plan: search_news_analyze_article
+2025-09-28T09:55:54.632Z [INFO]: TTS: Starting Search for news about "charlie kirk is dead", find top articles, click and summarize
+2025-09-28T09:55:54.633Z [INFO]: Executing step 1: browse
+2025-09-28T09:55:55.487Z [INFO]: Page reinitialized after closure
+2025-09-28T09:55:55.490Z [INFO]: Status: Opening https://www.google.com/search?q=charlie%20000ir000%20is%20dead&tbm=nws
+2025-09-28T09:55:58.984Z [INFO]: Executing step 2: sleep
+2025-09-28T09:56:01.493Z [INFO]: Executing step 3: extract
+2025-09-28T09:56:04.738Z [WARN]: Extraction failed for div[data-sokoban-container] a, .WlydOe: page.waitForSelector: Target page, context or browser has been closed
+Call log:
+[2m  - waiting for locator('div[data-sokoban-container] a, .WlydOe') to be visible[22m
+
+2025-09-28T09:56:05.251Z [INFO]: Executing step 4: click
+2025-09-28T09:56:05.977Z [INFO]: Page reinitialized after closure
+2025-09-28T09:56:06.029Z [WARN]: Selector // First article link not found, trying next...
+2025-09-28T09:56:06.030Z [ERROR]: Step 4 failed: Could not find any valid selector for click operation
+2025-09-28T09:56:06.539Z [INFO]: Executing step 5: screenshot
+2025-09-28T09:56:06.655Z [INFO]: Screenshot saved: screenshot-1759053366539.png
+2025-09-28T09:56:07.167Z [INFO]: Executing step 6: extract
+2025-09-28T09:56:11.272Z [WARN]: Extraction failed for article, .article-content, .post-content: page.waitForSelector: Target page, context or browser has been closed
+Call log:
+[2m  - waiting for locator('article, .article-content, .post-content') to be visible[22m
+
+2025-09-28T09:56:11.779Z [INFO]: TTS: Summary: Search completed for "charlie kirk is dead". No products found matching the criteria. ...
+2025-09-28T09:56:22.842Z [INFO]: Processing query: indian news
+2025-09-28T09:56:22.844Z [INFO]: Status: Executing plan: search_news_analyze_article
+2025-09-28T09:56:22.845Z [INFO]: TTS: Starting Search for news about "indian news", find top articles, click and summarize
+2025-09-28T09:56:22.846Z [INFO]: Executing step 1: browse
+2025-09-28T09:56:23.553Z [INFO]: Page reinitialized after closure
+2025-09-28T09:56:23.554Z [INFO]: Status: Opening https://www.google.com/search?q=indian%20news&tbm=nws
+2025-09-28T09:56:27.092Z [INFO]: Executing step 2: sleep
+2025-09-28T09:56:29.619Z [INFO]: Executing step 3: extract
+2025-09-28T09:56:29.710Z [WARN]: Extraction failed for div[data-sokoban-container] a, .WlydOe: Too many arguments. If you need to pass more than 1 argument to the function wrap them in an object.
+2025-09-28T09:56:30.214Z [INFO]: Executing step 4: click
+2025-09-28T09:56:30.222Z [WARN]: Selector // First article link not found, trying next...
+2025-09-28T09:56:30.223Z [ERROR]: Step 4 failed: Could not find any valid selector for click operation
+2025-09-28T09:56:30.725Z [INFO]: Executing step 5: screenshot
+2025-09-28T09:56:31.421Z [INFO]: Screenshot saved: screenshot-1759053390729.png
+2025-09-28T09:56:31.927Z [INFO]: Executing step 6: extract
+2025-09-28T09:56:36.243Z [WARN]: Extraction failed for article, .article-content, .post-content: Too many arguments. If you need to pass more than 1 argument to the function wrap them in an object.
+2025-09-28T09:56:36.747Z [INFO]: TTS: Summary: Search completed for "indian news". No products found matching the criteria. ...
+2025-09-28T09:56:49.326Z [INFO]: Client disconnected

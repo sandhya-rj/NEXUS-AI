@@ -1,0 +1,26 @@
+{
+  "server": {
+    "port": 3000,
+    "wsPort": 8080
+  },
+  "browser": {
+    "headless": false,
+    "viewport": {
+      "width": 1920,
+      "height": 1080
+    },
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+  },
+  "ai": {
+    "voiceEnabled": true,
+    "maxSearchResults": 10,
+    "humanDelayMin": 1000,
+    "humanDelayMax": 3000
+  },
+  "sites": {
+    "amazon": "https://www.amazon.in",
+    "flipkart": "https://www.flipkart.com",
+    "google": "https://www.google.com",
+    "googleNews": "https://news.google.com"
+  }
+}

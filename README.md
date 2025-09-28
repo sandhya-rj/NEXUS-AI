@@ -1,167 +1,159 @@
-🤖 NEXUS AI – The Intelligent Web Navigator That Thinks Like You 🌐
+# 🤖 NEXUS-AI – The Intelligent Web Navigator That Thinks Like You 🌐
 
-Unlike traditional chatbots that simply provide answers, NEXUS AI goes further: it autonomously browses websites, searches for products or news, and analyzes content in real-time, all while mimicking human behavior. It scrolls, clicks, waits, retries, and adapts just like a real person navigating the web.
+> Autonomous web agent that browses, analyzes, and understands the web like a human — enabling real-time product comparisons, news analysis, and intelligent decision-making.
 
-Ask it to compare laptops 💻, fetch the latest news 📰, or analyze products across multiple platforms 🛒, and NEXUS AI will intelligently navigate pages and present structured insights. It’s not just a chatbot; it’s your personal web intelligence assistant—universal, autonomous, and highly adaptable.
+---
 
-🚀 Project Title & Summary
+## 📜 Overview
 
-Project Title: NEXUS-AI
+**NEXUS-AI** is not just another chatbot. It’s a next-generation **autonomous web intelligence assistant** that mimics human browsing behavior to **search, navigate, analyze, and summarize** information across the internet — all in real time.
 
-Project Summary:
-NEXUS AI is an autonomous web browser and intelligent assistant that opens links directly, navigates websites like a human, and fetches structured insights in real-time. Unlike conventional browsers or chatbots that rely on static responses, NEXUS AI autonomously scrolls, clicks, waits, retries, and adapts to any website or query. Users can input natural-language commands to compare products, fetch news, or analyze content, and NEXUS AI handles the entire process without manual intervention. Its human-like behavior, voice interaction 🎤, and cross-platform adaptability make it the future of chatbots and web automation. By combining real-time analysis with autonomous navigation, NEXUS AI transforms how people interact with the web, research information, and make decisions—all while maintaining privacy and local execution 🔒.
+It **scrolls, clicks, waits, retries, and adapts** like a real user, enabling powerful use cases such as:
 
-📌 Problem Statement
+- 🛒 Product comparisons across multiple e-commerce platforms  
+- 📰 Real-time news analysis from various sources  
+- 📊 Intelligent content extraction and structured insights  
+- 🎤 Voice-controlled web navigation and data retrieval
 
-Design and implement an autonomous web agent that can understand natural-language queries and navigate arbitrary websites to retrieve, analyze, and summarize information (e.g., products, articles, comparisons) with minimal human supervision.
+---
 
-🧭 Proposal & Prototype Plan
+## 🚀 Features
 
-Phase 1: Core Setup
+- 🌍 **Universal Intelligence** – Works with any query, website, or platform  
+- 🧠 **Autonomous Navigation** – Human-like scrolling, clicking, waiting, and retrying  
+- 🔄 **Multi-Site Analysis** – Compares and aggregates data across multiple platforms  
+- ✍️ **Real-Time Summaries** – Extracts and summarizes product specs, reviews, or articles  
+- 🎙️ **Voice Interaction** – Hands-free control via natural voice commands  
+- 🛡️ **Error Resilience** – Recovers gracefully from navigation or data errors  
+- ⚙️ **Configurable Behavior** – Fine-tune crawling, analysis, and AI parameters
 
-Node.js backend (Express + WebSocket) ⚡
+---
 
-Playwright with Chromium for browser automation 🌐
+## 🧭 Project Roadmap
 
-Basic frontend with real-time status and logs 💻
+### Phase 1: Core Setup
+- Node.js backend with Express + WebSocket  
+- Playwright + Chromium for browser automation  
+- Frontend with real-time status and logs  
 
-Phase 2: Autonomous Navigation
+### Phase 2: Autonomous Navigation
+- Scrolling, clicking, waiting, retries, error handling  
+- Site adapters for major platforms (Amazon, Flipkart, Google, News sites)
 
-Human-like browsing actions: scrolling, clicking, waiting, retries, error recovery 👆
+### Phase 3: Analysis & Summarization
+- Product spec extraction, review parsing, scoring  
+- Article content extraction and summarization
 
-Site adapters for major platforms (Amazon, Flipkart, Google, news sites)
+### Phase 4: Voice Interaction
+- Web Speech API integration for natural voice commands
 
-Phase 3: Analysis & Summarization
+### Phase 5: Evaluation & Telemetry
+- Structured logs, screenshots, performance metrics  
+- Configurable behaviors via `config.json`
 
-Product specification extraction, review parsing, scoring ⭐
+---
 
-Article content extraction and concise summaries ✍️
+## 🧰 Tech Stack
 
-Phase 4: Voice Interaction
+| Layer | Technology |
+|------|------------|
+| Backend | Node.js, Express, WebSocket |
+| Browser Automation | Playwright + Chromium |
+| Frontend | HTML5 + JavaScript |
+| Voice Interaction | Web Speech API |
+| Configuration | JSON (`config.json`) |
 
-Integration with Web Speech API 🎤 for natural voice commands
+---
 
-Phase 5: Evaluation & Telemetry
+## 🛠️ Installation & Setup
 
-Structured logs, optional screenshots 📸, and performance metrics
-
-Configurable behaviors via config.json ⚙️
-
-✨ Key Features
-
-Universal Intelligence: Works with any query, product, news, or website 🌍
-
-Autonomous Navigation: Human-like browsing, scrolling, clicking, and analysis 🧠
-
-Voice Interaction: Natural voice commands and responses 🎙️
-
-Multi-Site Analysis: Intelligent comparison across platforms 🔄
-
-Real-Time Analysis: Instant product and content insights ⚡
-
-Error Resilience: Adaptive learning and problem-solving 🛡️
-
-🧰 Tech Stack Used
-
-Backend: Node.js, Express, WebSocket ⚡
-
-Automation: Playwright + Chromium 🌐
-
-Frontend: HTML5 with real-time updates 💻
-
-Voice: Web Speech API 🎤
-
-Configuration: JSON (config.json) ⚙️
-
-🛠️ Quick Start
-
-Install dependencies:
-
+### 1. Clone the Repository
+```bash
+git clone https://github.com/your-username/NEXUS-AI.git
+cd NEXUS-AI
+2. Install Dependencies
 npm run setup
 
-
-Start the system:
-
+3. Start the System
 npm start
 
-
-Open in browser:
-
+4. Open in Browser
 http://localhost:3000
 
+🎯 Usage Examples
 
-🎯 Usage Examples:
+💻 Find best laptops under 50000
 
-"Find best laptops under 50000" 💻
+📰 What's the latest news about AI?
 
-"What's the latest news about AI?" 🤖📰
+📱 Compare iPhone vs Samsung phones
 
-"Compare iPhone vs Samsung phones" 📱
+📰 Charlie Kirk latest news
 
-"Charlie Kirk latest news" 📰
+🎧 Best headphones on Amazon
 
-"Best headphones on Amazon" 🎧
-
-📋 System Requirements
-
-Node.js 18.0.0 or higher ⚡
-
-4GB RAM minimum (8GB recommended) 💾
-
-Internet connection 🌐
-
-Modern browser support 🌟
-
-🔧 Configuration
+⚙️ Configuration
 
 Edit config.json to customize:
 
-Browser settings 🌐
+🌐 Browser settings
 
-AI parameters 🤖
+🤖 AI parameters
 
-Site preferences 🔄
+🔄 Site preferences
 
-Voice options 🎤
+🎤 Voice options
 
-🤖 Technical Architecture
+📁 Directory Structure
+NEXUS-AI/
+├─ backend/              # Express & WebSocket server
+├─ automation/           # Playwright scripts & flows
+├─ adapters/             # Site-specific extraction logic
+├─ frontend/             # HTML/CSS/JS frontend
+├─ config.json           # Global configuration file
+└─ README.md             # Project documentation
 
-Backend: Node.js with Express and WebSocket ⚡
-
-Browser Automation: Playwright with Chromium 🌐
-
-AI Processing: Natural language understanding 🧠
-
-Frontend: Modern HTML5 with real-time updates 💻
-
-Voice: Web Speech API integration 🎤
-
-👥 Team Contributions
-
-Bala Vignesh VT-lead: Team Lead, roadmap, architecture, coordination, video lead
-Sandhya RJ: Automation & Orchestration, repo setup, frontend & voice UX, real-time UI, Web Speech integration
-Prarthana B: Playwright flows, data pipelines
-Gopika Sree KC: Site Adapters & QA, cross-site adapters, testing, evaluation
-Tharun Gurusamy: Backend & APIs, Express/WebSocket services, config & persistence
-
-🆘 Troubleshooting
-
-Run setup again: npm run setup ⚡
-
-Check Node.js version: node --version ✅
-
-Reinstall browsers: npm run install-browsers 🌐
-
-Test system: npm test 🧪
+| Member              | Role                                            |
+| ------------------- | ----------------------------------------------- |
+| **Bala Vignesh VT** | Team Lead, Roadmap, Architecture, Video Lead    |
+| **Sandhya RJ**      | Automation & Orchestration, Frontend & Voice UX |
+| **Prarthana B**     | Playwright Flows, Data Pipelines                |
+| **Gopika Sree KC**  | Site Adapters, QA & Testing                     |
+| **Tharun Gurusamy** | Backend, APIs, Config & Persistence             |
 
 🔄 Updates
 
-The system continuously learns and adapts. Regular updates include:
+NEXUS-AI continuously learns and adapts. Regular updates include:
 
-Enhanced site compatibility 🌍
+🌍 Enhanced site compatibility
 
-Improved AI algorithms 🤖
+🤖 Improved AI models and algorithms
 
-New feature additions ✨
+✨ New features and capabilities
 
-Performance optimizations ⚡
+⚡ Performance optimizations
+
+📜 License
+
+This project is licensed under the MIT License – see the LICENSE
+ file for details.
+
+⭐ Contributing
+
+Contributions are welcome!
+
+Fork the repository
+
+Create a new feature branch (git checkout -b feature-xyz)
+
+Commit changes (git commit -m 'Add new feature')
+
+Push the branch (git push origin feature-xyz)
+
+Create a Pull Request 🚀
+
+📞 Support
+
+For queries, suggestions, or collaborations, feel free to open an issue or reach out via email.
+
+🧠 NEXUS-AI transforms how humans interact with the web — from static search results to autonomous, intelligent exploration.

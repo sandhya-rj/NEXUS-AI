@@ -157,13 +157,13 @@ The system continuously learns and adapts. Regular updates include:
 
 ## Contribution Details (5 Members)
 
-| Name | GitHub | Role | Contributions |
-|------|--------|------|---------------|
-| Bala Vignesh (Team Leader) | `@username-lead` | Product & Architecture Lead | Roadmap, architecture, coordination, video lead |
-| Sandhya RJ | `@sandhya-rj` | Automation & Orchestration | Repo setup, Playwright flows, data pipelines |
-| Member 3 | `@username3` | Backend & APIs | Express/WebSocket services, config & persistence |
-| Member 4 | `@username4` | Frontend & Voice UX | Real-time UI, Web Speech integration |
-| Member 5 | `@username5` | Site Adapters & QA | Cross‑site adapters, testing, evaluation |
+| Name | GitHub | Email | Role | Contributions |
+|------|--------|-------|------|---------------|
+| Bala Vignesh (Team Leader) | `@username-lead` | rithvikkumae@gmail.com | Product & Architecture Lead | Roadmap, architecture, coordination, video lead |
+| Sandhya RJ | `@sandhya-rj` | (not provided) | Automation & Orchestration | Repo setup, Playwright flows, data pipelines |
+| Member 3 | `@username3` | tharungurusamy2006@gmail.com | Backend & APIs | Express/WebSocket services, config & persistence |
+| Member 4 | `@username4` | prarthanabharathiraja@gmail.com | Frontend & Voice UX | Real-time UI, Web Speech integration |
+| Member 5 | `@username5` | kcgopika0423@gmail.com | Site Adapters & QA | Cross‑site adapters, testing, evaluation |
 
 Update GitHub handles and contributions via PRs on the `project-plan` branch.
 
@@ -180,6 +180,7 @@ Update GitHub handles and contributions via PRs on the `project-plan` branch.
 - Add teammates as collaborators with write access using GitHub CLI:
   - `gh auth login`
   - `.\scripts\add-collaborators.ps1 -Repo "sandhya-rj/NEXUS-AI" -Users @("username-lead","username3","username4","username5") -Permission "push"`
+  - Note: Collaborator invites require GitHub usernames (not emails). Please share the GitHub handles for the above emails.
 
 ## Dedicated Project Branch
 

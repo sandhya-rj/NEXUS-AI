@@ -179,8 +179,24 @@ Update GitHub handles and contributions via PRs on the `project-plan` branch.
 
 - Add teammates as collaborators with write access using GitHub CLI:
   - `gh auth login`
-  - `.\u005cscripts\add-collaborators.ps1 -Repo "sandhya-rj/NEXUS-AI" -Users @("username-lead","username3","username4","username5") -Permission "push"`
+  - `.\scripts\add-collaborators.ps1 -Repo "sandhya-rj/NEXUS-AI" -Users @("username-lead","username3","username4","username5") -Permission "push"`
 
 ## Dedicated Project Branch
 
 - A dedicated branch `project-plan` has been created for planning and documentation. Create PRs into `main` after review.
+
+## Submission Components (Round 1)
+
+- Project Title & Summary
+  - Title: `NEXUS-AI` (matches repository name).
+  - Summary (≤300 words) covers: problem understanding, proposed prototype solution, uniqueness and impact.
+- GitHub Repository
+  - Dedicated project branch: `project-plan` (created).
+  - Add all associate members as collaborators (write): see “Collaborators”.
+  - README includes: problem statement chosen, detailed proposal & prototype plan, features to be implemented, tech stack used, and contribution details of each team member.
+- Video Pitch Submission
+  - Duration: Minimum 3 minutes and Maximum 4 minutes; Language: English only.
+  - Rules: every team member must appear at least once; each member introduces themselves and explains their contribution.
+  - After introduction, members may present a slideshow, infographic, flowchart, or screen share with voiceover.
+  - Content to include: team introduction; problem understanding; prototype/solution overview; innovation & uniqueness; next steps/scalability.
+  - Upload to Google Drive; set access to “Anyone with the link can view”. Submissions with inaccessible links will be disqualified.

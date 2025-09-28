@@ -20,3 +20,11 @@ Thumbs.db
 # Build artifacts
 dist/
 build/
+
+# LLM/model binaries
+*.bin
+*.gguf
+# Secrets
+.env
+# Chrome profiles
+chrome_profile/

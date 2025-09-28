@@ -1,0 +1,47 @@
+{
+  "name": "nexus-ai-universal-navigator",
+  "version": "1.0.0",
+  "description": "Nexus AI - Universal Web Intelligence Navigator with Advanced Voice Interaction",
+  "main": "nexus-server.js",
+  "scripts": {
+    "start": "node nexus-server.js",
+    "dev": "nodemon nexus-server.js",
+    "install-browsers": "npx playwright install chromium",
+    "setup": "npm install && npm run install-browsers && node setup.js",
+    "test": "node test-nexus.js"
+  },
+  "keywords": [
+    "nexus-ai",
+    "universal-web-navigator",
+    "ai-assistant",
+    "voice-interaction",
+    "browser-automation",
+    "intelligent-browsing",
+    "web-scraping",
+    "autonomous-navigation",
+    "multi-platform-search",
+    "hackathon-project"
+  ],
+  "author": "Nexus AI Team",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "playwright": "^1.55.1",
+    "ws": "^8.18.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/your-username/nexus-ai-navigator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-username/nexus-ai-navigator/issues"
+  },
+  "homepage": "https://github.com/your-username/nexus-ai-navigator#readme"
+}

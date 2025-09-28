@@ -1,0 +1,54 @@
+{
+  "nexusAI": {
+    "version": "1.0",
+    "personality": {
+      "name": "Nexus",
+      "traits": [
+        "intelligent",
+        "analytical",
+        "helpful",
+        "curious"
+      ],
+      "speaking_style": "professional_ai"
+    },
+    "strategy": "news"
+  },
+  "query": "charlie kirk news",
+  "timestamp": "2025-09-28T06:38:14.898Z",
+  "products": [],
+  "analysis": {
+    "summary": "No relevant data found for analysis",
+    "totalProducts": 0,
+    "sources": [],
+    "avgPrice": 0,
+    "priceRange": "N/A",
+    "recommendations": [
+      "Try refining your search query",
+      "Consider alternative search terms"
+    ],
+    "intelligence": {
+      "queryComplexity": "low",
+      "searchEfficiency": 0,
+      "dataQuality": "insufficient"
+    }
+  },
+  "metadata": {
+    "totalSites": 3,
+    "sites": [
+      {
+        "name": "Times of India",
+        "type": "news"
+      },
+      {
+        "name": "NDTV",
+        "type": "news"
+      },
+      {
+        "name": "The Hindu",
+        "type": "news"
+      }
+    ],
+    "searchDuration": 1759041494904,
+    "browserAgent": "Nexus AI - Universal Web Navigator"
+  }
+}

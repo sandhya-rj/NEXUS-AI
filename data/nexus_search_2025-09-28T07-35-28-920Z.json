@@ -1,0 +1,46 @@
+{
+  "nexusAI": {
+    "version": "1.0",
+    "personality": {
+      "name": "Nexus",
+      "traits": [
+        "intelligent",
+        "analytical",
+        "helpful",
+        "curious"
+      ],
+      "speaking_style": "professional_ai"
+    },
+    "strategy": "universal"
+  },
+  "query": "laptops under 50k",
+  "timestamp": "2025-09-28T07:35:28.920Z",
+  "products": [],
+  "analysis": {
+    "summary": "No relevant data found for analysis",
+    "totalProducts": 0,
+    "sources": [],
+    "avgPrice": 0,
+    "priceRange": "N/A",
+    "recommendations": [
+      "Try refining your search query",
+      "Consider alternative search terms"
+    ],
+    "intelligence": {
+      "queryComplexity": "low",
+      "searchEfficiency": 0,
+      "dataQuality": "insufficient"
+    }
+  },
+  "metadata": {
+    "totalSites": 1,
+    "sites": [
+      {
+        "name": "Amazon India",
+        "type": "shopping"
+      }
+    ],
+    "searchDuration": 1759044928924,
+    "browserAgent": "Nexus AI - Universal Web Navigator"
+  }
+}

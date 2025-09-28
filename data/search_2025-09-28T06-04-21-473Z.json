@@ -1,0 +1,21 @@
+{
+  "query": "best acne serums",
+  "timestamp": "2025-09-28T06:04:21.473Z",
+  "products": [],
+  "analysis": {
+    "summary": "No products found",
+    "totalProducts": 0,
+    "sources": [],
+    "avgPrice": 0,
+    "priceRange": "N/A",
+    "recommendations": []
+  },
+  "metadata": {
+    "browserAgent": "Playwright Chromium",
+    "totalSites": 2,
+    "sites": [
+      "Amazon",
+      "Flipkart"
+    ]
+  }
+}

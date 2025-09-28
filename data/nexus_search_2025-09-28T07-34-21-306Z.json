@@ -1,0 +1,54 @@
+{
+  "nexusAI": {
+    "version": "1.0",
+    "personality": {
+      "name": "Nexus",
+      "traits": [
+        "intelligent",
+        "analytical",
+        "helpful",
+        "curious"
+      ],
+      "speaking_style": "professional_ai"
+    },
+    "strategy": "universal"
+  },
+  "query": "laptops under 50k",
+  "timestamp": "2025-09-28T07:34:21.306Z",
+  "products": [],
+  "analysis": {
+    "summary": "No relevant data found for analysis",
+    "totalProducts": 0,
+    "sources": [],
+    "avgPrice": 0,
+    "priceRange": "N/A",
+    "recommendations": [
+      "Try refining your search query",
+      "Consider alternative search terms"
+    ],
+    "intelligence": {
+      "queryComplexity": "low",
+      "searchEfficiency": 0,
+      "dataQuality": "insufficient"
+    }
+  },
+  "metadata": {
+    "totalSites": 3,
+    "sites": [
+      {
+        "name": "Amazon India",
+        "type": "shopping"
+      },
+      {
+        "name": "Flipkart",
+        "type": "shopping"
+      },
+      {
+        "name": "GSMArena",
+        "type": "tech_specs"
+      }
+    ],
+    "searchDuration": 1759044861394,
+    "browserAgent": "Nexus AI - Universal Web Navigator"
+  }
+}

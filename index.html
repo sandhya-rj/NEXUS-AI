@@ -1,0 +1,1310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus AI - Universal Web Navigator</title>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        /* Live animated background */
+        .nexus-bg {
+            background: linear-gradient(-45deg, #0f0f23, #1a0033, #2d1b69, #0f3460, #0d1b2a);
+            background-size: 400% 400%;
+            animation: nexusFlow 15s ease infinite;
+        }
+        
+        @keyframes nexusFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* Floating particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: linear-gradient(45deg, #00f5ff, #ff00ff);
+            border-radius: 50%;
+            animation: float 6s infinite linear;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) scale(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) scale(1);
+                opacity: 0;
+            }
+        }
+        
+        /* Nexus brand styling */
+        .nexus-brand {
+            font-family: 'Orbitron', monospace;
+            background: linear-gradient(45deg, #00f5ff, #ff00ff, #00ff88, #ffff00);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: brandGlow 3s ease-in-out infinite;
+        }
+        
+        @keyframes brandGlow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        /* Advanced glass morphism */
+        .nexus-glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.5);
+        }
+        
+        /* Floating action buttons */
+        .floating-controls {
+            position: fixed;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .floating-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        .floating-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+        }
+        
+        .floating-btn.yes {
+            background: linear-gradient(45deg, #00ff88, #00f5ff);
+        }
+        
+        .floating-btn.no {
+            background: linear-gradient(45deg, #ff4757, #ff3838);
+        }
+        
+        .floating-btn.next {
+            background: linear-gradient(45deg, #ffa502, #ff6348);
+        }
+        
+        .floating-btn.summarize {
+            background: linear-gradient(45deg, #3742fa, #5352ed);
+        }
+        
+        .floating-btn.details {
+            background: linear-gradient(45deg, #ff9ff3, #f368e0);
+        }
+        
+        .floating-btn.top {
+            background: linear-gradient(45deg, #ffd700, #ffb142);
+        }
+        
+        /* Animated chatbot */
+        .nexus-bot {
+            position: relative;
+            animation: botFloat 4s ease-in-out infinite;
+        }
+        
+        @keyframes botFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(5deg); }
+        }
+        
+        .bot-eyes {
+            animation: botBlink 3s infinite;
+        }
+        
+        @keyframes botBlink {
+            0%, 90%, 100% { transform: scaleY(1); }
+            95% { transform: scaleY(0.1); }
+        }
+        
+        /* Enhanced animations */
+        .nexus-pulse {
+            animation: nexusPulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        
+        @keyframes nexusPulse {
+            0%, 100% {
+                opacity: 1;
+                box-shadow: 0 0 0 0 rgba(0, 245, 255, 0.7);
+            }
+            70% {
+                opacity: 0.9;
+                box-shadow: 0 0 0 10px rgba(0, 245, 255, 0);
+            }
+        }
+        
+        /* Live typing effect */
+        .typing-indicator {
+            display: inline-block;
+        }
+        
+        .typing-indicator:after {
+            content: '|';
+            animation: blink 1s infinite;
+        }
+        
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+        
+        /* Neural network background */
+        .neural-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        /* Holographic effects */
+        .hologram {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hologram::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            animation: hologramScan 3s infinite;
+        }
+        
+        @keyframes hologramScan {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        
+        /* Advanced card effects */
+        .nexus-card {
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+        }
+        
+        .nexus-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0, 245, 255, 0.2);
+        }
+        
+        /* Status indicator with network effect */
+        .network-status {
+            position: relative;
+        }
+        
+        .network-status::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            border: 2px solid;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            animation: networkPulse 1.5s infinite;
+        }
+        
+        @keyframes networkPulse {
+            0% {
+                width: 20px;
+                height: 20px;
+                opacity: 1;
+            }
+            100% {
+                width: 40px;
+                height: 40px;
+                opacity: 0;
+            }
+        }
+        
+        /* Scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(45deg, #00f5ff, #ff00ff);
+            border-radius: 10px;
+        }
+        
+        /* Voice recording animation */
+        .voice-active {
+            position: relative;
+        }
+        
+        .voice-active::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            border: 2px solid #ff4757;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            animation: voicePulse 1s infinite;
+        }
+        
+        @keyframes voicePulse {
+            0% {
+                width: 100%;
+                height: 100%;
+                opacity: 1;
+            }
+            100% {
+                width: 150%;
+                height: 150%;
+                opacity: 0;
+            }
+        }
+
+        /* Placeholder animation */
+        .placeholder-animate::placeholder {
+            opacity: 0;
+            animation: placeholderFade 8s ease-in-out infinite;
+        }
+
+        @keyframes placeholderFade {
+            0%, 20% { opacity: 1; }
+            25%, 45% { opacity: 0; }
+            50%, 70% { opacity: 1; }
+            75%, 95% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body class="nexus-bg min-h-screen text-white overflow-x-hidden">
+    <!-- Animated background particles -->
+    <div class="particles" id="particles"></div>
+    
+    <!-- Neural network background -->
+    <div class="neural-bg">
+        <canvas id="neuralCanvas"></canvas>
+    </div>
+    
+    <div id="root"></div>
+    
+    <script type="text/babel">
+        const { useState, useEffect, useRef, useCallback } = React;
+        
+        // Animated Bot Component
+        const NexusBot = ({ isActive, isThinking }) => {
+            return (
+                <div className="nexus-bot relative">
+                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-cyan-400 via-blue-500 to-purple-600 flex items-center justify-center relative overflow-hidden">
+                        <div className="absolute inset-0 bg-gradient-to-br from-transparent via-white/10 to-transparent animate-pulse"></div>
+                        <div className="bot-eyes flex space-x-1">
+                            <div className={`w-2 h-2 rounded-full ${isActive ? 'bg-green-400' : 'bg-blue-400'}`}></div>
+                            <div className={`w-2 h-2 rounded-full ${isActive ? 'bg-green-400' : 'bg-blue-400'}`}></div>
+                        </div>
+                        {isThinking && (
+                            <div className="absolute inset-0 flex items-center justify-center">
+                                <div className="w-8 h-8 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                            </div>
+                        )}
+                    </div>
+                    <div className={`absolute -bottom-1 -right-1 w-4 h-4 rounded-full ${
+                        isActive ? 'bg-green-400 nexus-pulse' : 'bg-gray-500'
+                    }`}></div>
+                </div>
+            );
+        };
+
+        // Dynamic Placeholder Component
+        const DynamicPlaceholder = () => {
+            const placeholders = [
+                "Hi! How are you today? Try: 'Find me best gaming laptops under 50000'",
+                "Ask me anything! Example: 'Show me latest iPhone prices'",
+                "I can help with shopping! Try: 'HP gaming laptop with good reviews'",
+                "Need news updates? Ask: 'What happened to Charlie Kirk?'",
+                "Search products universally: 'Best wireless headphones 2024'",
+                "Compare prices easily: 'Samsung vs iPhone flagship phones'",
+                "Find trending items: 'Top rated products on Amazon today'"
+            ];
+
+            const [currentPlaceholder, setCurrentPlaceholder] = useState(0);
+
+            useEffect(() => {
+                const interval = setInterval(() => {
+                    setCurrentPlaceholder((prev) => (prev + 1) % placeholders.length);
+                }, 4000);
+
+                return () => clearInterval(interval);
+            }, []);
+
+            return placeholders[currentPlaceholder];
+        };
+
+        // Floating Control Buttons Component
+        const FloatingControls = ({ onAction, currentQuestion, isVisible }) => {
+            if (!isVisible) return null;
+            
+            return (
+                <div className="floating-controls">
+                    <button 
+                        className="floating-btn yes"
+                        onClick={() => onAction('yes')}
+                        title="Yes / Confirm"
+                    >
+                        <i className="fas fa-check text-white text-xl"></i>
+                    </button>
+                    
+                    <button 
+                        className="floating-btn no"
+                        onClick={() => onAction('no')}
+                        title="No / Cancel"
+                    >
+                        <i className="fas fa-times text-white text-xl"></i>
+                    </button>
+                    
+                    <button 
+                        className="floating-btn next"
+                        onClick={() => onAction('next')}
+                        title="Next"
+                    >
+                        <i className="fas fa-arrow-right text-white text-xl"></i>
+                    </button>
+                    
+                    <button 
+                        className="floating-btn summarize"
+                        onClick={() => onAction('summarize')}
+                        title="Summarize"
+                    >
+                        <i className="fas fa-list-ul text-white text-xl"></i>
+                    </button>
+                    
+                    <button 
+                        className="floating-btn details"
+                        onClick={() => onAction('details')}
+                        title="Show Details"
+                    >
+                        <i className="fas fa-info-circle text-white text-xl"></i>
+                    </button>
+                    
+                    <button 
+                        className="floating-btn top"
+                        onClick={() => onAction('top_product')}
+                        title="Find Top Product"
+                    >
+                        <i className="fas fa-crown text-white text-xl"></i>
+                    </button>
+                </div>
+            );
+        };
+
+        // Main Nexus AI Component
+        const NexusAI = () => {
+            const [query, setQuery] = useState('');
+            const [isSearching, setIsSearching] = useState(false);
+            const [isListening, setIsListening] = useState(false);
+            const [isSpeaking, setIsSpeaking] = useState(false);
+            const [results, setResults] = useState([]);
+            const [searchHistory, setSearchHistory] = useState([]);
+            const [analysis, setAnalysis] = useState(null);
+            const [status, setStatus] = useState('Nexus AI Ready - Universal Web Intelligence Active');
+            const [browserTabs, setBrowserTabs] = useState([]);
+            const [socketConnected, setSocketConnected] = useState(false);
+            const [nexusThoughts, setNexusThoughts] = useState('');
+            const [floatingControlsVisible, setFloatingControlsVisible] = useState(false);
+            const [currentQuestion, setCurrentQuestion] = useState('');
+            const [sessionResults, setSessionResults] = useState([]);
+            
+            const wsRef = useRef(null);
+            const recognitionRef = useRef(null);
+            const canvasRef = useRef(null);
+
+            // Initialize particles animation
+            useEffect(() => {
+                createParticles();
+                setupNeuralBackground();
+            }, []);
+
+            const createParticles = () => {
+                const particlesContainer = document.getElementById('particles');
+                
+                const createParticle = () => {
+                    const particle = document.createElement('div');
+                    particle.className = 'particle';
+                    particle.style.left = Math.random() * 100 + '%';
+                    particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                    particle.style.animationDelay = Math.random() * 2 + 's';
+                    particlesContainer.appendChild(particle);
+                    
+                    setTimeout(() => {
+                        if (particle.parentNode) {
+                            particle.remove();
+                        }
+                    }, 6000);
+                };
+                
+                setInterval(createParticle, 300);
+            };
+
+            const setupNeuralBackground = () => {
+                const canvas = document.getElementById('neuralCanvas');
+                if (!canvas) return;
+                
+                const ctx = canvas.getContext('2d');
+                
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+                
+                const nodes = [];
+                const nodeCount = 50;
+                
+                // Create nodes
+                for (let i = 0; i < nodeCount; i++) {
+                    nodes.push({
+                        x: Math.random() * canvas.width,
+                        y: Math.random() * canvas.height,
+                        vx: (Math.random() - 0.5) * 0.5,
+                        vy: (Math.random() - 0.5) * 0.5
+                    });
+                }
+                
+                const animate = () => {
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    
+                    // Update and draw nodes
+                    nodes.forEach(node => {
+                        node.x += node.vx;
+                        node.y += node.vy;
+                        
+                        if (node.x < 0 || node.x > canvas.width) node.vx *= -1;
+                        if (node.y < 0 || node.y > canvas.height) node.vy *= -1;
+                        
+                        ctx.beginPath();
+                        ctx.arc(node.x, node.y, 2, 0, Math.PI * 2);
+                        ctx.fillStyle = 'rgba(0, 245, 255, 0.3)';
+                        ctx.fill();
+                    });
+                    
+                    // Draw connections
+                    for (let i = 0; i < nodes.length; i++) {
+                        for (let j = i + 1; j < nodes.length; j++) {
+                            const dx = nodes[i].x - nodes[j].x;
+                            const dy = nodes[i].y - nodes[j].y;
+                            const distance = Math.sqrt(dx * dx + dy * dy);
+                            
+                            if (distance < 100) {
+                                ctx.beginPath();
+                                ctx.moveTo(nodes[i].x, nodes[i].y);
+                                ctx.lineTo(nodes[j].x, nodes[j].y);
+                                ctx.strokeStyle = `rgba(0, 245, 255, ${0.1 * (1 - distance / 100)})`;
+                                ctx.stroke();
+                            }
+                        }
+                    }
+                    
+                    requestAnimationFrame(animate);
+                };
+                
+                animate();
+                
+                const handleResize = () => {
+                    canvas.width = window.innerWidth;
+                    canvas.height = window.innerHeight;
+                };
+                
+                window.addEventListener('resize', handleResize);
+                
+                return () => {
+                    window.removeEventListener('resize', handleResize);
+                };
+            };
+
+            // Initialize WebSocket connection
+            useEffect(() => {
+                const connectWebSocket = () => {
+                    try {
+                        wsRef.current = new WebSocket('ws://localhost:8080');
+                        
+                        wsRef.current.onopen = () => {
+                            setSocketConnected(true);
+                            setStatus('Nexus AI Neural Network Connected - Ready for Universal Web Intelligence');
+                            nexusSpeak('Neural pathways established. Ready for universal web exploration.');
+                        };
+                        
+                        wsRef.current.onmessage = (event) => {
+                            try {
+                                const data = JSON.parse(event.data);
+                                handleWebSocketMessage(data);
+                            } catch (error) {
+                                console.error('Message parsing error:', error);
+                            }
+                        };
+                        
+                        wsRef.current.onclose = () => {
+                            setSocketConnected(false);
+                            setStatus('Neural Network Disconnected - Attempting Reconnection...');
+                            setTimeout(connectWebSocket, 3000); // Auto-reconnect
+                        };
+                        
+                        wsRef.current.onerror = (error) => {
+                            console.error('WebSocket error:', error);
+                            setStatus('Connection Error - Neural Network Disrupted');
+                        };
+                    } catch (error) {
+                        console.error('WebSocket connection error:', error);
+                        setStatus('Failed to establish neural connection');
+                    }
+                };
+
+                connectWebSocket();
+                loadSearchHistory();
+
+                return () => {
+                    if (wsRef.current && wsRef.current.readyState === WebSocket.OPEN) {
+                        wsRef.current.close();
+                    }
+                };
+            }, []);
+
+            // Initialize Speech Recognition
+            useEffect(() => {
+                if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+                    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+                    recognitionRef.current = new SpeechRecognition();
+                    recognitionRef.current.continuous = false;
+                    recognitionRef.current.interimResults = false;
+                    recognitionRef.current.lang = 'en-US';
+
+                    recognitionRef.current.onresult = (event) => {
+                        const transcript = event.results[0][0].transcript;
+                        setQuery(transcript);
+                        setIsListening(false);
+                        nexusSpeak(`I heard: ${transcript}. Analyzing your request...`);
+                    };
+
+                    recognitionRef.current.onerror = (error) => {
+                        console.error('Speech recognition error:', error);
+                        setIsListening(false);
+                        nexusSpeak('Voice recognition error. Please try again or type your query.');
+                    };
+
+                    recognitionRef.current.onend = () => {
+                        setIsListening(false);
+                    };
+                }
+            }, []);
+
+            const handleWebSocketMessage = (data) => {
+                switch (data.type) {
+                    case 'status':
+                        setStatus(data.message);
+                        setNexusThoughts(data.message);
+                        break;
+                    case 'products':
+                        if (data.products && Array.isArray(data.products)) {
+                            setResults(prev => [...prev, ...data.products]);
+                            setSessionResults(prev => [...prev, ...data.products]);
+                            nexusSpeak(`Found ${data.products.length} products. Analyzing quality and value for you...`);
+                        }
+                        break;
+                    case 'analysis':
+                        setAnalysis(data.analysis);
+                        setIsSearching(false);
+                        setFloatingControlsVisible(false);
+                        if (data.analysis.totalProducts > 0) {
+                            nexusSpeak(`Analysis complete! I discovered ${data.analysis.totalProducts} products across ${data.analysis.sources.length} platforms. ${data.analysis.avgPrice ? `The average price is ${data.analysis.avgPrice} rupees.` : ''} Would you like me to find the top-rated product?`);
+                        } else if (data.analysis.totalNews > 0) {
+                            nexusSpeak(`News analysis complete! I found ${data.analysis.totalNews} relevant articles providing comprehensive coverage of your query.`);
+                        }
+                        break;
+                    case 'tab_opened':
+                        setBrowserTabs(prev => [...prev, data.tab]);
+                        nexusSpeak(`Opening ${data.tab.name} for comprehensive analysis...`);
+                        break;
+                    case 'voice_prompt':
+                        setCurrentQuestion(data.message);
+                        setFloatingControlsVisible(true);
+                        nexusSpeak(data.message);
+                        break;
+                    case 'thinking':
+                        setNexusThoughts(data.message);
+                        break;
+                    case 'error':
+                        setStatus(`Neural Processing Challenge: ${data.message}`);
+                        setIsSearching(false);
+                        setFloatingControlsVisible(false);
+                        nexusSpeak('I encountered a challenge, but I am adapting my approach. Please try refining your search query.');
+                        break;
+                }
+            };
+
+            const nexusSpeak = (text) => {
+                if ('speechSynthesis' in window && text) {
+                    // Cancel any ongoing speech
+                    window.speechSynthesis.cancel();
+                    
+                    setIsSpeaking(true);
+                    const utterance = new SpeechSynthesisUtterance(text);
+                    utterance.rate = 0.95;
+                    utterance.pitch = 1.1;
+                    utterance.volume = 0.8;
+                    
+                    // Make voice sound more AI-like
+                    const voices = speechSynthesis.getVoices();
+                    const aiVoice = voices.find(voice => 
+                        voice.name.includes('Google') || 
+                        voice.name.includes('Microsoft') ||
+                        voice.name.includes('Samantha')
+                    );
+                    if (aiVoice) utterance.voice = aiVoice;
+                    
+                    utterance.onend = () => setIsSpeaking(false);
+                    utterance.onerror = () => setIsSpeaking(false);
+                    
+                    window.speechSynthesis.speak(utterance);
+                }
+            };
+
+            const handleFloatingAction = (action) => {
+                setFloatingControlsVisible(false);
+                
+                switch (action) {
+                    case 'yes':
+                        if (wsRef.current && wsRef.current.readyState === WebSocket.OPEN) {
+                            wsRef.current.send(JSON.stringify({
+                                type: 'voice_response',
+                                continue: true
+                            }));
+                        }
+                        nexusSpeak('Affirmative. Proceeding with enhanced analysis...');
+                        break;
+                    case 'no':
+                        if (wsRef.current && wsRef.current.readyState === WebSocket.OPEN) {
+                            wsRef.current.send(JSON.stringify({
+                                type: 'voice_response',
+                                continue: false
+                            }));
+                        }
+                        nexusSpeak('Understood. Focusing on current data analysis...');
+                        break;
+                    case 'next':
+                        nexusSpeak('Moving to next phase of analysis...');
+                        break;
+                    case 'summarize':
+                        generateSmartSummary();
+                        break;
+                    case 'details':
+                        provideDetailedAnalysis();
+                        break;
+                    case 'top_product':
+                        findTopProduct();
+                        break;
+                }
+            };
+
+            const generateSmartSummary = () => {
+                if (sessionResults.length === 0) {
+                    nexusSpeak('No data available for summary. Please initiate a search first.');
+                    return;
+                }
+                
+                const summary = `Based on my comprehensive analysis across multiple platforms, I found ${sessionResults.length} relevant products. ${analysis && analysis.priceRange ? `The price range is ${analysis.priceRange}.` : ''} My neural algorithms suggest focusing on products with optimal price-to-performance ratios.`;
+                
+                nexusSpeak(summary);
+                setNexusThoughts(summary);
+            };
+
+            const provideDetailedAnalysis = () => {
+                if (!analysis) {
+                    nexusSpeak('Detailed analysis requires completed search data. Please initiate a search first.');
+                    return;
+                }
+                
+                let detailed = `My detailed neural analysis reveals: Total products analyzed: ${analysis.totalProducts || 0}. `;
+                
+                if (analysis.avgPrice) {
+                    detailed += `Average price point: ${analysis.avgPrice} rupees. `;
+                }
+                
+                detailed += 'I have cross-referenced reviews, specifications, and market trends. The recommendations I am providing are based on advanced pattern recognition and value optimization algorithms.';
+                
+                nexusSpeak(detailed);
+                setNexusThoughts(detailed);
+            };
+
+            const findTopProduct = () => {
+                if (sessionResults.length === 0) {
+                    nexusSpeak('I need search data to identify the top product. Please initiate a search first.');
+                    return;
+                }
+                
+                // Find top product based on AI score or first result
+                const topProduct = sessionResults.find(p => p.aiScore) || sessionResults[0];
+                const topMessage = `Based on my analysis, the top-rated product is: ${topProduct.title.substring(0, 50)}... from ${topProduct.source || topProduct.site}. This product offers the best combination of features, reviews, and value${topProduct.price ? ` at ${topProduct.price}` : ''}. I recommend this based on my comprehensive evaluation algorithms.`;
+                
+                nexusSpeak(topMessage);
+                setNexusThoughts(topMessage);
+            };
+
+            const startVoiceInput = () => {
+                if (recognitionRef.current && !isListening) {
+                    setIsListening(true);
+                    nexusSpeak('Listening for your command...');
+                    try {
+                        recognitionRef.current.start();
+                    } catch (error) {
+                        console.error('Voice recognition start error:', error);
+                        setIsListening(false);
+                        nexusSpeak('Voice recognition is not available. Please type your query.');
+                    }
+                }
+            };
+
+            const startUniversalSearch = () => {
+                if (!query.trim() || !socketConnected || isSearching) return;
+
+                setIsSearching(true);
+                setResults([]);
+                setSessionResults([]);
+                setAnalysis(null);
+                setBrowserTabs([]);
+                setStatus('Initializing Nexus Neural Networks...');
+                setNexusThoughts('Analyzing query patterns and determining optimal search strategy...');
+
+                // Determine search type based on query
+                const queryLower = query.toLowerCase();
+                let searchStrategy = 'universal';
+                
+                if (queryLower.includes('news') || queryLower.includes('latest') || queryLower.includes('current') || queryLower.includes('died') || queryLower.includes('dead')) {
+                    searchStrategy = 'news';
+                    nexusSpeak('I detect you want news information. Initiating news aggregation across multiple sources...');
+                } else if (queryLower.includes('buy') || queryLower.includes('price') || queryLower.includes('product') || queryLower.includes('laptop') || queryLower.includes('phone')) {
+                    searchStrategy = 'shopping';
+                    nexusSpeak('Shopping query detected. Activating multi-platform product analysis...');
+                } else {
+                    nexusSpeak(`Universal search initiated for: ${query}. I will intelligently navigate multiple platforms to gather comprehensive data.`);
+                }
+
+                // Add to search history
+                const searchEntry = {
+                    id: Date.now(),
+                    query,
+                    timestamp: new Date().toLocaleTimeString(),
+                    date: new Date().toLocaleDateString(),
+                    type: searchStrategy
+                };
+                
+                const newHistory = [searchEntry, ...searchHistory.slice(0, 9)];
+                setSearchHistory(newHistory);
+                saveSearchHistory(newHistory);
+
+                // Send search request
+                if (wsRef.current && wsRef.current.readyState === WebSocket.OPEN) {
+                    wsRef.current.send(JSON.stringify({
+                        type: 'start_universal_search',
+                        query: query.trim(),
+                        strategy: searchStrategy
+                    }));
+                }
+            };
+
+            const loadSearchHistory = () => {
+                try {
+                    const saved = localStorage.getItem('nexus_history');
+                    if (saved) {
+                        setSearchHistory(JSON.parse(saved));
+                    }
+                } catch (error) {
+                    console.error('Error loading search history:', error);
+                }
+            };
+
+            const saveSearchHistory = (history) => {
+                try {
+                    localStorage.setItem('nexus_history', JSON.stringify(history));
+                } catch (error) {
+                    console.error('Error saving search history:', error);
+                }
+            };
+
+            const toggleSpeech = () => {
+                if (isSpeaking) {
+                    window.speechSynthesis.cancel();
+                    setIsSpeaking(false);
+                }
+            };
+
+            const handleProductClick = (product) => {
+                if (product.url && wsRef.current && wsRef.current.readyState === WebSocket.OPEN) {
+                    wsRef.current.send(JSON.stringify({
+                        type: 'user_click',
+                        url: product.url
+                    }));
+                } else if (product.link) {
+                    window.open(product.link, '_blank');
+                }
+            };
+
+            return (
+                <div className="relative z-10 min-h-screen">
+                    <FloatingControls 
+                        onAction={handleFloatingAction}
+                        currentQuestion={currentQuestion}
+                        isVisible={floatingControlsVisible}
+                    />
+                    
+                    {/* Header */}
+                    <div className="nexus-glass border-b border-white/10 sticky top-0 z-50 hologram">
+                        <div className="max-w-7xl mx-auto px-6 py-6">
+                            <div className="flex items-center justify-between">
+                                <div className="flex items-center space-x-4">
+                                    <NexusBot isActive={socketConnected} isThinking={isSearching} />
+                                    <div>
+                                        <h1 className="text-3xl font-bold nexus-brand">
+                                            NEXUS AI
+                                        </h1>
+                                        <p className="text-sm text-cyan-300 font-light">
+                                            Universal Web Intelligence • Next-Gen Navigation
+                                        </p>
+                                    </div>
+                                </div>
+                                
+                                <div className="flex items-center space-x-4">
+                                    <div className={`flex items-center space-x-2 px-4 py-2 rounded-full nexus-glass border ${
+                                        socketConnected ? 'border-green-400/50 text-green-300' : 'border-red-400/50 text-red-300'
+                                    }`}>
+                                        <div className={`w-3 h-3 rounded-full network-status ${socketConnected ? 'bg-green-400' : 'bg-red-400'}`}></div>
+                                        <span className="text-sm font-medium">{socketConnected ? 'Neural Network Active' : 'Connection Lost'}</span>
+                                    </div>
+                                    
+                                    {browserTabs.length > 0 && (
+                                        <div className="flex items-center space-x-2 px-4 py-2 rounded-full nexus-glass border-blue-400/50 text-blue-300">
+                                            <i className="fas fa-window-restore"></i>
+                                            <span className="text-sm font-medium">{browserTabs.length} Active Tabs</span>
+                                        </div>
+                                    )}
+                                    
+                                    {nexusThoughts && (
+                                        <div className="max-w-md px-4 py-2 rounded-full nexus-glass border-purple-400/50 text-purple-300">
+                                            <div className="flex items-center space-x-2">
+                                                <i className="fas fa-brain text-sm animate-pulse"></i>
+                                                <span className="text-sm truncate typing-indicator">{nexusThoughts}</span>
+                                            </div>
+                                        </div>
+                                    )}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="max-w-7xl mx-auto px-6 py-8">
+                        <div className="grid grid-cols-1 xl:grid-cols-4 gap-8">
+                            {/* Sidebar */}
+                            <div className="xl:col-span-1">
+                                <div className="nexus-glass p-6 nexus-card hologram">
+                                    <div className="flex items-center space-x-2 mb-6">
+                                        <i className="fas fa-history text-cyan-400"></i>
+                                        <h2 className="text-lg font-bold text-white">Neural Memory</h2>
+                                    </div>
+                                    
+                                    <div className="space-y-3 max-h-96 overflow-y-auto">
+                                        {searchHistory.map((item) => (
+                                            <div
+                                                key={item.id}
+                                                className="p-3 nexus-glass nexus-card cursor-pointer border border-white/10 hover:border-cyan-400/50"
+                                                onClick={() => setQuery(item.query)}
+                                            >
+                                                <div className="flex items-start justify-between">
+                                                    <p className="text-sm text-gray-200 truncate flex-1">{item.query}</p>
+                                                    <span className={`ml-2 px-2 py-1 rounded-full text-xs ${
+                                                        item.type === 'shopping' ? 'bg-green-500/20 text-green-300' :
+                                                        item.type === 'news' ? 'bg-blue-500/20 text-blue-300' :
+                                                        'bg-purple-500/20 text-purple-300'
+                                                    }`}>
+                                                        {item.type}
+                                                    </span>
+                                                </div>
+                                                <p className="text-xs text-gray-500 mt-1">{item.timestamp} • {item.date}</p>
+                                            </div>
+                                        ))}
+                                        
+                                        {searchHistory.length === 0 && (
+                                            <div className="text-center py-8">
+                                                <i className="fas fa-brain text-gray-600 text-3xl mb-3"></i>
+                                                <p className="text-gray-500 text-sm italic">Neural memory initializing...</p>
+                                            </div>
+                                        )}
+                                    </div>
+                                </div>
+                                
+                                {/* AI Status Panel */}
+                                <div className="nexus-glass p-6 nexus-card hologram mt-6">
+                                    <div className="flex items-center space-x-2 mb-4">
+                                        <i className="fas fa-robot text-purple-400"></i>
+                                        <h3 className="font-bold text-white">AI Status</h3>
+                                    </div>
+                                    
+                                    <div className="space-y-3 text-sm">
+                                        <div className="flex justify-between">
+                                            <span className="text-gray-400">Intelligence Level:</span>
+                                            <span className="text-cyan-400 font-bold">Revolutionary</span>
+                                        </div>
+                                        <div className="flex justify-between">
+                                            <span className="text-gray-400">Learning Mode:</span>
+                                            <span className="text-green-400 font-bold">Active</span>
+                                        </div>
+                                        <div className="flex justify-between">
+                                            <span className="text-gray-400">Neural Networks:</span>
+                                            <span className={`font-bold ${socketConnected ? 'text-green-400' : 'text-red-400'}`}>
+                                                {socketConnected ? 'Online' : 'Offline'}
+                                            </span>
+                                        </div>
+                                        <div className="flex justify-between">
+                                            <span className="text-gray-400">Voice Interface:</span>
+                                            <span className="text-yellow-400 font-bold">Enabled</span>
+                                        </div>
+                                        <div className="flex justify-between">
+                                            <span className="text-gray-400">Auto Navigation:</span>
+                                            <span className="text-blue-400 font-bold">Active</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Main Content */}
+                            <div className="xl:col-span-3">
+                                {/* Enhanced Search Interface */}
+                                <div className="nexus-glass p-8 mb-8 nexus-card hologram">
+                                    <div className="flex items-center space-x-4 mb-6">
+                                        <div className="flex-1 relative">
+                                            <input
+                                                type="text"
+                                                value={query}
+                                                onChange={(e) => setQuery(e.target.value)}
+                                                onKeyPress={(e) => e.key === 'Enter' && startUniversalSearch()}
+                                                placeholder={<DynamicPlaceholder />}
+                                                className="w-full px-8 py-6 nexus-glass text-white placeholder-gray-400 text-lg focus:outline-none focus:ring-2 focus:ring-cyan-500/50 transition-all border border-white/10 hover:border-cyan-400/50 placeholder-animate"
+                                                disabled={isSearching}
+                                            />
+                                            <i className="fas fa-search absolute right-6 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                                        </div>
+                                        
+                                        <button
+                                            onClick={startVoiceInput}
+                                            disabled={isSearching || isListening}
+                                            className={`px-8 py-6 rounded-xl font-bold nexus-card transition-all ${
+                                                isListening
+                                                    ? 'bg-gradient-to-r from-red-500 to-pink-500 text-white voice-active'
+                                                    : 'bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white'
+                                            } border border-white/20 disabled:opacity-50`}
+                                        >
+                                            <i className={`fas ${isListening ? 'fa-microphone-slash' : 'fa-microphone'} text-xl`}></i>
+                                        </button>
+                                        
+                                        <button
+                                            onClick={startUniversalSearch}
+                                            disabled={isSearching || !query.trim() || !socketConnected}
+                                            className="px-10 py-6 bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 hover:from-cyan-600 hover:via-blue-600 hover:to-purple-600 disabled:from-gray-600 disabled:to-gray-700 disabled:cursor-not-allowed text-white rounded-xl font-bold nexus-card transition-all border border-white/20"
+                                        >
+                                            {isSearching ? (
+                                                <div className="flex items-center space-x-3">
+                                                    <div className="w-6 h-6 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                                                    <span className="text-lg">Neural Processing...</span>
+                                                </div>
+                                            ) : (
+                                                <div className="flex items-center space-x-3">
+                                                    <i className="fas fa-rocket text-xl"></i>
+                                                    <span className="text-lg">Launch Search</span>
+                                                </div>
+                                            )}
+                                        </button>
+                                    </div>
+                                    
+                                    {/* Enhanced Status Display */}
+                                    <div className="flex items-center justify-between">
+                                        <div className="flex items-center space-x-3">
+                                            <div className={`w-4 h-4 rounded-full ${isSearching ? 'bg-cyan-400 nexus-pulse' : 'bg-gray-500'}`}></div>
+                                            <span className="text-white font-medium">{status}</span>
+                                        </div>
+                                        
+                                        <div className="flex items-center space-x-4">
+                                            {isSpeaking && (
+                                                <button
+                                                    onClick={toggleSpeech}
+                                                    className="flex items-center space-x-2 px-4 py-2 nexus-glass border-orange-400/50 text-orange-300 rounded-lg hover:bg-orange-500/20 transition-all"
+                                                >
+                                                    <i className="fas fa-volume-up nexus-pulse"></i>
+                                                    <span className="text-sm font-medium">AI Speaking...</span>
+                                                </button>
+                                            )}
+                                            
+                                            {isSearching && (
+                                                <div className="flex items-center space-x-2 px-4 py-2 nexus-glass border-cyan-400/50 text-cyan-300 rounded-lg">
+                                                    <div className="flex space-x-1">
+                                                        <div className="w-2 h-2 bg-cyan-400 rounded-full animate-bounce"></div>
+                                                        <div className="w-2 h-2 bg-cyan-400 rounded-full animate-bounce" style={{animationDelay: '0.1s'}}></div>
+                                                        <div className="w-2 h-2 bg-cyan-400 rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></div>
+                                                    </div>
+                                                    <span className="text-sm font-medium">Neural Activity</span>
+                                                </div>
+                                            )}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* Enhanced Analysis Panel */}
+                                {analysis && (
+                                    <div className="nexus-glass p-8 mb-8 nexus-card hologram border border-green-400/30">
+                                        <div className="flex items-center space-x-3 mb-6">
+                                            <i className="fas fa-brain text-2xl text-green-400"></i>
+                                            <h2 className="text-2xl font-bold nexus-brand">Nexus AI Analysis</h2>
+                                        </div>
+                                        
+                                        {/* Enhanced Metrics Grid */}
+                                        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                                            <div className="nexus-glass border border-cyan-400/50 p-6 nexus-card text-center">
+                                                <i className="fas fa-shopping-cart text-3xl text-cyan-400 mb-3"></i>
+                                                <p className="text-3xl font-bold text-cyan-400">{analysis.totalProducts}</p>
+                                                <p className="text-gray-300 font-medium">Products Found</p>
+                                            </div>
+                                            
+                                            <div className="nexus-glass border border-green-400/50 p-6 nexus-card text-center">
+                                                <i className="fas fa-globe text-3xl text-green-400 mb-3"></i>
+                                                <p className="text-3xl font-bold text-green-400">{analysis.sources.length}</p>
+                                                <p className="text-gray-300 font-medium">Data Sources</p>
+                                            </div>
+                                            
+                                            {analysis.avgPrice && (
+                                                <div className="nexus-glass border border-purple-400/50 p-6 nexus-card text-center">
+                                                    <i className="fas fa-rupee-sign text-3xl text-purple-400 mb-3"></i>
+                                                    <p className="text-3xl font-bold text-purple-400">{analysis.avgPrice.toLocaleString()}</p>
+                                                    <p className="text-gray-300 font-medium">Average Price</p>
+                                                </div>
+                                            )}
+                                            
+                                            {analysis.priceRange && (
+                                                <div className="nexus-glass border border-yellow-400/50 p-6 nexus-card text-center">
+                                                    <i className="fas fa-chart-line text-3xl text-yellow-400 mb-3"></i>
+                                                    <p className="text-xl font-bold text-yellow-400">{analysis.priceRange}</p>
+                                                    <p className="text-gray-300 font-medium">Price Range</p>
+                                                </div>
+                                            )}
+
+                                            {analysis.totalNews > 0 && (
+                                                <div className="nexus-glass border border-red-400/50 p-6 nexus-card text-center">
+                                                    <i className="fas fa-newspaper text-3xl text-red-400 mb-3"></i>
+                                                    <p className="text-3xl font-bold text-red-400">{analysis.totalNews}</p>
+                                                    <p className="text-gray-300 font-medium">News Articles</p>
+                                                </div>
+                                            )}
+                                        </div>
+
+                                        {/* AI Recommendations */}
+                                        {analysis.recommendations && analysis.recommendations.length > 0 && (
+                                            <div className="mb-6">
+                                                <h3 className="text-xl font-bold text-yellow-400 mb-4 flex items-center">
+                                                    <i className="fas fa-lightbulb mr-2"></i>
+                                                    Neural Intelligence Recommendations
+                                                </h3>
+                                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                    {analysis.recommendations.map((rec, index) => (
+                                                        <div key={index} className="nexus-glass border border-yellow-400/30 p-4 nexus-card">
+                                                            <div className="flex items-start space-x-3">
+                                                                <i className="fas fa-star text-yellow-400 mt-1"></i>
+                                                                <p className="text-white">{rec}</p>
+                                                            </div>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        )}
+
+                                        {analysis.message && (
+                                            <div className="nexus-glass border border-blue-400/30 p-4 rounded-lg">
+                                                <div className="flex items-center space-x-3">
+                                                    <i className="fas fa-info-circle text-blue-400"></i>
+                                                    <p className="text-white">{analysis.message}</p>
+                                                </div>
+                                            </div>
+                                        )}
+                                    </div>
+                                )}
+
+                                {/* Enhanced Results Display */}
+                                {sessionResults.length > 0 && (
+                                    <div className="nexus-glass p-8 nexus-card hologram">
+                                        <div className="flex items-center justify-between mb-6">
+                                            <div className="flex items-center space-x-3">
+                                                <i className="fas fa-database text-2xl text-blue-400"></i>
+                                                <h2 className="text-2xl font-bold text-white">Discovery Results</h2>
+                                            </div>
+                                            <div className="flex items-center space-x-2 px-4 py-2 nexus-glass border-blue-400/50 text-blue-300 rounded-lg">
+                                                <span className="font-bold">{sessionResults.length}</span>
+                                                <span>items found</span>
+                                            </div>
+                                        </div>
+                                        
+                                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                                            {sessionResults.map((product, index) => (
+                                                <div 
+                                                    key={index} 
+                                                    className="nexus-glass p-6 nexus-card border border-white/10 hover:border-cyan-400/50 cursor-pointer"
+                                                    onClick={() => handleProductClick(product)}
+                                                >
+                                                    <div className="flex justify-between items-start mb-4">
+                                                        <h3 className="font-bold text-white text-lg leading-tight flex-1 mr-4">{product.title}</h3>
+                                                        <span className={`px-3 py-1 rounded-full text-sm font-bold nexus-glass border ${
+                                                            (product.source || product.site) === 'amazon' 
+                                                                ? 'border-orange-400/50 text-orange-300' 
+                                                                : 'border-blue-400/50 text-blue-300'
+                                                        }`}>
+                                                            <i className={`fas ${(product.source || product.site) === 'amazon' ? 'fa-amazon' : 'fa-shopping-bag'} mr-1`}></i>
+                                                            {product.source || product.site || 'Website'}
+                                                        </span>
+                                                    </div>
+                                                    
+                                                    <div className="flex justify-between items-center">
+                                                        <div className="flex items-center space-x-4">
+                                                            {product.price && (
+                                                                <span className="text-green-400 font-bold text-xl">{product.price}</span>
+                                                            )}
+                                                            {product.rating && product.rating !== 'N/A' && (
+                                                                <div className="flex items-center space-x-1">
+                                                                    <i className="fas fa-star text-yellow-400"></i>
+                                                                    <span className="text-yellow-400 font-medium">{product.rating}</span>
+                                                                </div>
+                                                            )}
+                                                            {product.aiScore && (
+                                                                <div className="flex items-center space-x-1">
+                                                                    <i className="fas fa-brain text-purple-400"></i>
+                                                                    <span className="text-purple-400 font-medium">{product.aiScore}%</span>
+                                                                </div>
+                                                            )}
+                                                        </div>
+                                                        
+                                                        <div className="flex items-center space-x-2">
+                                                            <button 
+                                                                onClick={(e) => {
+                                                                    e.stopPropagation();
+                                                                    handleProductClick(product);
+                                                                }}
+                                                                className="px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white rounded-lg font-medium transition-all"
+                                                            >
+                                                                <i className="fas fa-eye mr-1"></i>
+                                                                Analyze
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* Enhanced Empty State */}
+                                {!isSearching && sessionResults.length === 0 && !analysis && (
+                                    <div className="nexus-glass p-16 text-center hologram">
+                                        <div className="nexus-bot mb-8 mx-auto" style={{transform: 'scale(2)'}}>
+                                            <NexusBot isActive={socketConnected} isThinking={false} />
+                                        </div>
+                                        
+                                        <h2 className="text-3xl font-bold nexus-brand mb-4">Welcome to Revolutionary Nexus AI</h2>
+                                        <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+                                            I am your universal web intelligence companion. I can autonomously browse websites, analyze products, 
+                                            gather news, compare information, and provide intelligent insights with human-like navigation.
+                                        </p>
+                                        
+                                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left max-w-4xl mx-auto">
+                                            <div className="nexus-glass p-6 nexus-card border border-cyan-400/30">
+                                                <i className="fas fa-microphone text-3xl text-cyan-400 mb-4"></i>
+                                                <h3 className="font-bold text-cyan-400 mb-3">Voice Intelligence</h3>
+                                                <p className="text-gray-400">Speak naturally and I'll understand your intent, automatically navigate, and provide real-time commentary</p>
+                                            </div>
+                                            
+                                            <div className="nexus-glass p-6 nexus-card border border-green-400/30">
+                                                <i className="fas fa-robot text-3xl text-green-400 mb-4"></i>
+                                                <h3 className="font-bold text-green-400 mb-3">Autonomous Browsing</h3>
+                                                <p className="text-gray-400">I navigate websites like a human - scrolling, clicking, selecting top products, and analyzing content automatically</p>
+                                            </div>
+                                            
+                                            <div className="nexus-glass p-6 nexus-card border border-purple-400/30">
+                                                <i className="fas fa-brain text-3xl text-purple-400 mb-4"></i>
+                                                <h3 className="font-bold text-purple-400 mb-3">Universal Intelligence</h3>
+                                                <p className="text-gray-400">Shopping, news, research, comparisons - I adapt to any domain with advanced AI and provide intelligent summaries</p>
+                                            </div>
+                                        </div>
+                                        
+                                        <div className="mt-12">
+                                            <p className="text-gray-500 text-lg mb-4">Try asking me:</p>
+                                            <div className="flex flex-wrap justify-center gap-4">
+                                                {[
+                                                    'Find me the best HP gaming laptops under 50000',
+                                                    'What\'s the latest news about Charlie Kirk?',
+                                                    'Compare iPhone vs Samsung flagship phones',
+                                                    'Show me trending products on Amazon today'
+                                                ].map((suggestion, index) => (
+                                                    <button
+                                                        key={index}
+                                                        onClick={() => setQuery(suggestion)}
+                                                        className="px-6 py-3 nexus-glass border border-white/20 hover:border-cyan-400/50 text-cyan-300 rounded-lg nexus-card font-medium"
+                                                    >
+                                                        "{suggestion}"
+                                                    </button>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+
+        ReactDOM.render(React.createElement(NexusAI), document.getElementById('root'));
+    </script>
+</body>
+</html>

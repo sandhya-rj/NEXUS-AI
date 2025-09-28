@@ -1,0 +1,22 @@
+# Environments
+.venv/
+env/
+venv/
+# Logs
+logs/
+# Models and large assets
+models/
+screenshots/
+# Node
+node_modules/
+# Python
+__pycache__/
+*.pyc
+# OS
+.DS_Store
+Thumbs.db
+# Env files
+.env
+# Build artifacts
+dist/
+build/

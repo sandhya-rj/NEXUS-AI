@@ -128,9 +128,13 @@ Voice: Web Speech API integration
 Name	GitHub	Role	Contributions
 
 Bala Vignesh VT-lead	Team Lead	Roadmap, architecture, coordination, video lead
+
 Sandhya RJ-Automation & Orchestration	Repo setup, Frontend & Voice UX	Real-time UI, Web Speech integration
+
 Prarthana B-Playwright flows, data pipelines
+
 Gopika Sree KC-Site Adapters & QA, Cross-site adapters, testing, evaluation
+
 Tharun Gurusamy-Backend & APIs, Express/WebSocket services, config & persistence
 
 🆘 Troubleshooting

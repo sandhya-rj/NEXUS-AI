@@ -17,6 +17,14 @@ It **scrolls, clicks, waits, retries, and adapts** like a real user, enabling po
 
 ---
 
+| Member              | Role                                            |
+| ------------------- | ----------------------------------------------- |
+| **Bala Vignesh VT** | Team Lead, Roadmap, Architecture, Video Lead    |
+| **Sandhya RJ**      | Automation & Orchestration, Frontend & Voice UX |
+| **Prarthana B**     | Playwright Flows, Data Pipelines                |
+| **Gopika Sree KC**  | Site Adapters, QA & Testing                     |
+| **Tharun Gurusamy** | Backend, APIs, Config & Persistence             |
+
 ## 🚀 Features
 
 - 🌍 **Universal Intelligence** – Works with any query, website, or platform  
@@ -112,14 +120,6 @@ NEXUS-AI/
 ├─ frontend/             # HTML/CSS/JS frontend
 ├─ config.json           # Global configuration file
 └─ README.md             # Project documentation
-
-| Member              | Role                                            |
-| ------------------- | ----------------------------------------------- |
-| **Bala Vignesh VT** | Team Lead, Roadmap, Architecture, Video Lead    |
-| **Sandhya RJ**      | Automation & Orchestration, Frontend & Voice UX |
-| **Prarthana B**     | Playwright Flows, Data Pipelines                |
-| **Gopika Sree KC**  | Site Adapters, QA & Testing                     |
-| **Tharun Gurusamy** | Backend, APIs, Config & Persistence             |
 
 🔄 Updates
 

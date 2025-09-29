@@ -87,7 +87,7 @@ npm start
 
 4. Open in Browser
 http://localhost:3000
-
+```````
 🎯 Usage Examples
 
 💻 Find best laptops under 50000

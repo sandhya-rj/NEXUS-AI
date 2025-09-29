@@ -112,6 +112,7 @@ Edit config.json to customize:
 
 🎤 Voice options
 
+````
 📁 Directory Structure
 NEXUS-AI/
 ├─ backend/              # Express & WebSocket server
@@ -120,7 +121,7 @@ NEXUS-AI/
 ├─ frontend/             # HTML/CSS/JS frontend
 ├─ config.json           # Global configuration file
 └─ README.md             # Project documentation
-
+````
 🔄 Updates
 
 NEXUS-AI continuously learns and adapts. Regular updates include:

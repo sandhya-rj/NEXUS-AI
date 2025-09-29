@@ -133,12 +133,7 @@ NEXUS-AI continuously learns and adapts. Regular updates include:
 ✨ New features and capabilities
 
 ⚡ Performance optimizations
-
-📜 License
-
-This project is licensed under the MIT License – see the LICENSE
- file for details.
-
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ⭐ Contributing
 
 Contributions are welcome!
@@ -152,7 +147,7 @@ Commit changes (git commit -m 'Add new feature')
 Push the branch (git push origin feature-xyz)
 
 Create a Pull Request 🚀
-
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 📞 Support
 
 For queries, suggestions, or collaborations, feel free to open an issue or reach out via email.
